@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme Colors -->
+
+    <color name="primaryDarkColor">#1976D2</color>
+    <color name="primaryLightColor">#BBDEFB</color>
+    <color name="accentColor">#FF4081</color>
+    
+    <!-- Light Theme Colors -->
+    <color name="backgroundColorLight">#FFFFFF</color>
+    <color name="surfaceColorLight">#F5F5F5</color>
+    <color name="textPrimaryColorLight">#212121</color>
+    <color name="textSecondaryColorLight">#757575</color>
+    
+    <!-- Dark Theme Colors -->
+    <color name="backgroundColorDark">#121212</color>
+    <color name="surfaceColorDark">#1E1E1E</color>
+    <color name="textPrimaryColorDark">#FFFFFF</color>
+    <color name="textSecondaryColorDark">#B3FFFFFF</color>
+
+
+    <!-- Màu được cải thiện cho Dark Theme -->
+    <color name="primaryColor">#1565C0</color>
+    <color name="primaryVariant">#2563EB</color>
+    <color name="primaryLight">#64B5F6</color>
+
+    <color name="backgroundColor">#0F0F23</color>
+    <color name="surfaceColor">#1E2A3A</color>
+    <color name="surfaceVariant">#2D3748</color>
+
+    <color name="textPrimaryColor">#E1E5E9</color>
+    <color name="textSecondaryColor">#9CA3AF</color>
+
+    <color name="borderColor">#4A5568</color>
+    <color name="dividerColor">#2D3748</color>
+
+    <color name="successColor">#10B981</color>
+    <color name="warningColor">#F59E0B</color>
+    <color name="errorColor">#EF4444</color>
+
+
+    <color name="hintColor">#80FFFFFF</color>
+
+    <!-- Social Media Colors -->
+    <color name="facebookColor">#1877F2</color>
+    <color name="gmailColor">#EA4335</color>
+
+    <!-- Standard Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red">#FF4500</color>
+    <color name="green">#4CAF50</color>
+    <color name="teal_200">#80CBC4</color>
+    <color name="teal_700">#00796B</color>
+    <color name="bottomSheetColor">#1E1E1E</color>
+    <color name="secondaryColor">#BDBDBD</color>
+    <color name="bottomNavigationColor">#1E1E1E</color>
+
+
+    <!-- Transparent Colors -->
+    <color name="primaryColorTransparent">#334CAF50</color>
+
+    <!-- Màu chính -->
+    <color name="primary_blue">#4285F4</color>
+    <color name="primary_blue_dark">#3367D6</color>
+    <color name="primary_blue_light">#8AB4F8</color>
+    <!-- Màu nền -->
+    <color name="background_light">#e0f7fa</color>
+    <!-- Màu thẻ -->
+    <color name="card_contact">#E9F5FF</color>
+    <color name="card_location">#E7F8E9</color>
+    <color name="card_task">#F5EEFF</color>
+    <color name="card_microphone">#FFF3E0</color>
+    <!-- Màu nhấn -->
+    <color name="accent_purple">#AA3FF9</color>
+    <color name="accent_green">#34A853</color>
+    <color name="accent_yellow">#FBBC05</color>
+    <color name="emergency_red">#EA4335</color>
+    <!-- Accent Colors -->
+    <color name="accent_green_light">#C8E6C9</color>
+    <color name="accent_yellow_light">#FFE0B2</color>
+    <color name="accent_purple_light">#D1C4E9</color>
+    <!-- Màu văn bản -->
+    <color name="text_primary">#202124</color>
+    <color name="text_secondary">#5F6368</color>
+    <!-- Màu phụ -->
+    <color name="grey_700">#5F6368</color>
+    <color name="grey_400">#BDC1C6</color>
+    
+    <!-- Additional colors for onboarding -->
+    <color name="lightGray">#E0E0E0</color>
+    <color name="textColor">#424242</color>
+    <color name="secondaryTextColor">#666666</color>
+    
+    <!-- Warning colors for dialog -->
+    <color name="warning_background">#FFF8E1</color>
+    <color name="warning_border">#FFE082</color>
+    <color name="warning_text">#F57C00</color>
+    <color name="warning_color">#FF9800</color>
+    
+    <!-- Primary color alias -->
+    <color name="primary_color">@color/primaryColor</color>
+
+    <color name="app_with_limit_background">#F5F5F5</color>
+
+
+</resources>

@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">ChildLocate</string>
+    <string name="location_tutorial">Location Tutorial</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_id">User ID</string>
+    <string name="change_password">Change Password</string>
+    <string name="child_name">Child Name</string>
+    <string name="logout">Logout</string>
+    <string name="show_history">See your child\'s location on Maps\n</string>
+
+    <string name="click_to_choose_avatar">Click to choose your child\'s avatar</string>
+    <string name="choose_avatar">Choose avatar</string>
+    <string name="email">Email:</string>
+    <string name="phone">Phone Number:</string>
+    <string name="app_version">App Version:</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="child_name_format">Your child name: %1$s</string>
+    <string name="userid_format">Your UserId: %1$s</string>
+    <string name="email_format">Your email: %1$s</string>
+
+    <string name="usage_time_format">%d giờ %d phút</string>
+    <string name="accessibility_service_description">Dịch vụ này giúp bảo vệ trẻ em khỏi nội dung không phù hợp bằng cách giám sát và lọc văn bản trên màn hình.</string>
+    <string name="next">Tiếp tục</string>
+    <string name="slide_image_description">Chuyển slide auto\n</string>
+    <string name="change_avatar">Thay Avatar\n</string>
+    <string name="edit_profile">Sửa thông tin\n</string>
+    <string name="family_members">Thành viên gia đình</string>
+    <string name="add_family_member">Thêm thành viên</string>
+    <string name="tracking_settings">Cài đặt theo dõi vị trí</string>
+    <string name="location_update_interval">Cập nhật vị trí\n</string>
+    <string name="every_5_minutes">Mỗi 5 phút</string>
+    <string name="safe_zones">Chế độ an toàn\n</string>
+    <string name="manage_safe_areas">Quản lý an toàn\n</string>
+    <string name="tracking_schedule">Theo dõi lịch trình\n</string>
+    <string name="always_on">Luôn bật\n</string>
+    <string name="notifications">Thông báo\n</string>
+    <string name="battery_alerts">Quản lý chế độ tiết kiệm pin</string>
+    <string name="sos_alerts">Quản lý cảnh báo</string>
+    <string name="privacy_security">Thông tin bảo mật</string>
+    <string name="app_lock">Khóa ứng dụng</string>
+    <string name="biometric_authentication">Khóa sinh học</string>
+    <string name="change_pin">Thay đổi mật khẩu</string>
+    <string name="support_about">Hỗ trợ</string>
+    <string name="app_version_format">Version App</string>
+    <string name="terms_of_service">Quản lý service</string>
+    <string name="privacy_policy">Bảo mật</string>
+    <string name="contact_support">Liên hệ hỗ trợ</string>
+    <string name="save">Lưu</string>
+    <string name="add">Thêm</string>
+    <string name="delete_member">Xóa thành viên</string>
+    <string name="delete_member_confirmation">Xác nhận xóa %1s</string>
+    <string name="delete">Xóa</string>
+    <string name="logout_confirmation">XÁC NHẬN ĐĂNG XUẤT</string>
+    <string name="yes">Có</string>
+    <string name="no">Không</string>
+    <string name="name">Tên</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="safe_zone_alerts">Chế độ cảnh báo an toàn</string>
+    
+    <!-- Onboarding strings -->
+    <string name="welcome_image">Welcome image</string>
+    <string name="features_image">Features image</string>
+
+
+</resources>

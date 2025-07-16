@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24"/>
+
+    <item
+        android:id="@+id/chat"
+        android:title="Chat"
+        android:drawableTint="@color/white"
+        android:icon="@drawable/baseline_message_24"
+        />
+
+    <item
+        android:id="@+id/userinfo"
+        android:title="User"
+        android:icon="@drawable/baseline_person_2_24" />
+
+</menu>

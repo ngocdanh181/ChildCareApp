@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Cài đặt SOS">
+        <Preference
+            android:key="home_screen_widget"
+            android:title="Widget màn hình chính"
+            android:summary="Thêm nút SOS vào màn hình chính để truy cập nhanh"
+            android:icon="@drawable/baseline_add_to_home_screen_24" />
+
+        <SwitchPreferenceCompat
+            android:key="emergency_gesture"
+            android:title="Cử chỉ khẩn cấp"
+            android:summary="Bật để kích hoạt SOS bằng cách nhấn nút nguồn 5 lần liên tiếp"
+            android:icon="@drawable/touch_screen" />
+
+        <SwitchPreferenceCompat
+            android:key="emergency_accelerometer"
+            android:title="Cảnh báo khẩn cấp thông qua va đập"
+            android:summary="Bật để kích hoạt SOS bằng việc xác nhận sự va đập mạnh"
+            android:icon="@drawable/touch_screen" />
+
+        <Preference
+            android:key="quick_settings_tile"
+            android:title="Cài đặt nhanh"
+            android:summary="Thêm nút SOS vào thanh cài đặt nhanh"
+            android:icon="@drawable/baseline_settings_24" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Cài đặt nâng cao">
+        <Preference
+            android:key="battery_optimization"
+            android:title="Tối ưu hóa pin"
+            android:summary="Tắt tối ưu hóa pin để đảm bảo SOS hoạt động khi pin yếu"
+            android:icon="@drawable/baseline_battery_alert_24" />
+
+        <ListPreference
+            android:key="sos_behavior"
+            android:title="Hành vi SOS"
+            android:summary="Chọn hành vi khi nhấn nút SOS"
+            android:entries="@array/sos_behavior_entries"
+            android:entryValues="@array/sos_behavior_values"
+            android:defaultValue="confirm"
+            android:icon="@drawable/baseline_settings_24" />
+    </PreferenceCategory>
+</PreferenceScreen>

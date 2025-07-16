@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sos_behavior_entries">
+        <item>Yêu cầu xác nhận</item>
+        <item>Gửi ngay lập tức</item>
+        <item>Gửi sau 3 giây</item>
+    </string-array>
+
+    <string-array name="sos_behavior_values">
+        <item>confirm</item>
+        <item>immediate</item>
+        <item>delayed</item>
+    </string-array>
+</resources>

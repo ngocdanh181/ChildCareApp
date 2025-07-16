@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundColor">
+            <!-- Background Image -->
+            <ImageView
+                android:id="@+id/backgroundCircles"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/double_elip"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4" />
+
+            <!-- Main Title Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/titleCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:layout_marginEnd="@dimen/spacing_medium_negative"
+                app:cardBackgroundColor="@color/primaryColor"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.7">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_large"
+                    android:text="Let's protect\nyour kids\nwith us!"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:lineSpacingMultiplier="1.2" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Track Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/trackCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium_negative"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                app:cardBackgroundColor="@color/primaryColor"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleCard"
+                app:layout_constraintWidth_percent="0.65">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_large">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_track"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        android:gravity="end"
+                        android:text="Track with\nKid Tag"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:lineSpacingMultiplier="1.2" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Role Type Section -->
+            <TextView
+                android:id="@+id/roleTypeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xxlarge"
+                android:text="Choose role type"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/trackCard" />
+
+            <!-- Parent Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/parentButton"
+                style="@style/CustomButton"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="Parent"
+                app:icon="@drawable/ic_parent"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/spacing_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roleTypeTextView"
+                app:layout_constraintWidth_percent="0.85" />
+
+            <!-- Other Parent Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/otherParentButton"
+                style="@style/CustomButton"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:text="Other Parent"
+                app:icon="@drawable/ic_parent"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/spacing_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/parentButton"
+                app:layout_constraintWidth_percent="0.85" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</layout>

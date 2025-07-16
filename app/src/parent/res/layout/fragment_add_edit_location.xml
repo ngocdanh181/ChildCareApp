@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.parent.locations.AddEditLocationFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.childlocate.ui.parent.locations.AddEditLocationViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="Thêm địa điểm mới"
+                android:background="@color/primaryColor"
+                app:titleTextColor="@color/white"
+                app:titleTextAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:elevation="8dp"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundColor"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/backgroundColor"
+                android:padding="16dp">
+
+                <!-- Search Section with Card Style -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/searchCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@color/surfaceColor"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/borderColor"
+                    app:strokeWidth="1dp"
+                    app:contentPadding="16dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/searchInputLayout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Tìm kiếm địa điểm"
+                            android:textColorHint="@color/textSecondaryColor"
+                            app:boxBackgroundColor="@color/surfaceVariant"
+                            app:boxStrokeColor="@color/borderColor"
+                            app:hintTextColor="@color/textSecondaryColor"
+                            app:endIconDrawable="@drawable/ic_search"
+                            app:endIconMode="custom"
+                            app:endIconTint="@color/textSecondaryColor">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/searchEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textColor="@color/textPrimaryColor"
+                                android:textColorHint="@color/textSecondaryColor" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Search Results within Card -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/searchResultsRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:visibility="gone"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/item_place_search_result"
+                            tools:visibility="visible" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Map Section -->
+                <TextView
+                    android:id="@+id/mapLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Chọn vị trí trên bản đồ:"
+                    android:textColor="@color/textPrimaryColor"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/searchCard" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mapCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/surfaceColor"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/borderColor"
+                    app:strokeWidth="1dp"
+                    app:contentPadding="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/mapLabel">
+
+                    <FrameLayout
+                        android:id="@+id/mapView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        android:contentDescription="map_content" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Location Info Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/locationInfoCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/surfaceColor"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/borderColor"
+                    app:strokeWidth="1dp"
+                    app:contentPadding="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/mapCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thông tin địa điểm"
+                            android:textColor="@color/textPrimaryColor"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="16dp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/nameInputLayout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:hint="Tên địa điểm"
+                            android:textColorHint="@color/textSecondaryColor"
+                            app:boxBackgroundColor="@color/surfaceVariant"
+                            app:boxStrokeColor="@color/borderColor"
+                            app:hintTextColor="@color/textSecondaryColor">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/nameEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:textColor="@color/textPrimaryColor"
+                                android:text="@={viewModel.name}" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/addressInputLayout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:hint="Địa chỉ"
+                            android:textColorHint="@color/textSecondaryColor"
+                            app:boxBackgroundColor="@color/surfaceVariant"
+                            app:boxStrokeColor="@color/borderColor"
+                            app:hintTextColor="@color/textSecondaryColor">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/addressEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPostalAddress"
+                                android:maxLines="2"
+                                android:textColor="@color/textPrimaryColor"
+                                android:text="@={viewModel.address}" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/locationSourceText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/textSecondaryColor"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            tools:text="Địa điểm được chọn từ tìm kiếm"
+                            tools:visibility="visible" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Settings Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/settingsCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/surfaceColor"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/borderColor"
+                    app:strokeWidth="1dp"
+                    app:contentPadding="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/locationInfoCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cài đặt"
+                            android:textColor="@color/textPrimaryColor"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="16dp" />
+
+                        <TextView
+                            android:id="@+id/locationTypeLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Loại địa điểm:"
+                            android:textColor="@color/textPrimaryColor"
+                            android:textSize="16sp" />
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/locationTypeChipGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/homeChip"
+                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="Nhà"
+                                android:textColor="@color/chip_text_color"
+                                app:chipBackgroundColor="@color/chip_background_color"
+                                app:chipStrokeColor="@color/borderColor"
+                                app:chipStrokeWidth="1dp"
+                                app:chipIcon="@drawable/baseline_home_24"
+                                app:chipIconTint="@color/chip_icon_color" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/schoolChip"
+                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Trường học"
+                                android:textColor="@color/chip_text_color"
+                                app:chipBackgroundColor="@color/chip_background_color"
+                                app:chipStrokeColor="@color/borderColor"
+                                app:chipStrokeWidth="1dp"
+                                app:chipIcon="@drawable/ic_school"
+                                app:chipIconTint="@color/chip_icon_color" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/parkChip"
+                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Công viên"
+                                android:textColor="@color/chip_text_color"
+                                app:chipBackgroundColor="@color/chip_background_color"
+                                app:chipStrokeColor="@color/borderColor"
+                                app:chipStrokeWidth="1dp"
+                                app:chipIcon="@drawable/ic_park"
+                                app:chipIconTint="@color/chip_icon_color" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/relativeChip"
+                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nhà người thân"
+                                android:textColor="@color/chip_text_color"
+                                app:chipBackgroundColor="@color/chip_background_color"
+                                app:chipStrokeColor="@color/borderColor"
+                                app:chipStrokeWidth="1dp"
+                                app:chipIcon="@drawable/ic_relative"
+                                app:chipIconTint="@color/chip_icon_color" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/friendChip"
+                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nhà bạn bè"
+                                android:textColor="@color/chip_text_color"
+                                app:chipBackgroundColor="@color/chip_background_color"
+                                app:chipStrokeColor="@color/borderColor"
+                                app:chipStrokeWidth="1dp"
+                                app:chipIcon="@drawable/ic_friend"
+                                app:chipIconTint="@color/chip_icon_color" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/otherChip"
+                                style="@style/Widget.MaterialComponents.Chip.Choice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Khác"
+                                android:textColor="@color/chip_text_color"
+                                app:chipBackgroundColor="@color/chip_background_color"
+                                app:chipStrokeColor="@color/borderColor"
+                                app:chipStrokeWidth="1dp"
+                                app:chipIcon="@drawable/ic_other_location"
+                                app:chipIconTint="@color/chip_icon_color" />
+                        </com.google.android.material.chip.ChipGroup>
+
+                        <TextView
+                            android:id="@+id/radiusLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Bán kính thông báo: 100m"
+                            android:textColor="@color/textPrimaryColor"
+                            android:textSize="16sp" />
+
+                        <SeekBar
+                            android:id="@+id/radiusSeekBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:max="500"
+                            android:progress="100"
+                            android:progressTint="@color/primaryColor"
+                            android:thumbTint="@color/primaryColor"
+                            android:progressBackgroundTint="@color/borderColor" />
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/notificationsSwitch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="Bật thông báo khi vào/ra khỏi khu vực"
+                            android:textColor="@color/textPrimaryColor"
+                            android:textSize="16sp"
+                            app:thumbTint="@color/switch_thumb_color"
+                            app:trackTint="@color/switch_track_color" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Save Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/saveButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="@color/primaryColor"
+                    android:text="Lưu địa điểm"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:paddingVertical="12dp"
+                    app:cornerRadius="8dp"
+                    app:elevation="4dp"
+                    app:layout_constraintTop_toBottomOf="@id/settingsCard" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminateTint="@color/primaryColor"
+            tools:visibility="visible" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

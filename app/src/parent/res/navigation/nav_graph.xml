@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.childlocate.ui.parent.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_detailChatFragment"
+            app:destination="@id/detailChatFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_usageDetailFragment"
+            app:destination="@id/usageDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_webFilterFragment"
+            app:destination="@id/webFilterFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailChatFragment"
+        android:name="com.example.childlocate.ui.parent.detailchat.DetailChatFragment"
+        android:label="DetailChatFragment"
+        tools:layout="@layout/fragment_detail_chat">
+
+        <action
+            android:id="@+id/action_detailChatFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+        <argument
+            android:name="senderId"
+            app:argType="string" />
+
+        <argument
+            android:name="receiverId"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.childlocate.ui.parent.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history">
+        <argument
+        android:name="parentId"
+        app:argType="string" />
+
+        <argument
+        android:name="childId"
+        app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.childlocate.ui.parent.userinfo.UserInfoFragment"
+        android:label="fragment_user_info"
+        tools:layout="@layout/fragment_user_info" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.childlocate.ui.ChatFragment"
+        android:label="ChatFragment" />
+
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.childlocate.ui.parent.task.TaskFragment"
+        android:label="fragment_task"
+        tools:layout="@layout/fragment_task">
+
+        <argument
+            android:name="parentId"
+            app:argType="string" />
+
+        <argument
+            android:name="childId"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/usageDetailFragment"
+        android:name="com.example.childlocate.ui.parent.usagedetail.UsageDetailFragment"
+        android:label="fragment_usage_detail"
+        tools:layout="@layout/fragment_usage_detail">
+        <argument
+            android:name="childId"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/webFilterFragment"
+        android:name="com.example.childlocate.ui.parent.webfilter.WebFilterFragment"
+        android:label="WebFilterFragment"
+        tools:layout="@layout/fragment_web_filter">
+        <argument
+            android:name="childId"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.example.childlocate.ui.parent.locations.LocationsFragment"
+        android:label="fragment_locations"
+        tools:layout="@layout/fragment_locations" >
+        <argument
+            android:name="parentId"
+            app:argType="string" />
+
+        <argument
+            android:name="childId"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_locationsFragment_to_addEditLocationFragment2"
+            app:destination="@id/addEditLocationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditLocationFragment"
+        android:name="com.example.childlocate.ui.parent.locations.AddEditLocationFragment"
+        android:label="fragment_add_edit_location"
+        tools:layout="@layout/fragment_add_edit_location">
+        <argument
+            android:name="locationId"
+            app:argType="string" />
+        <argument
+            android:name="parentId"
+            app:argType="string" />
+
+        <argument
+            android:name="childId"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
+
+
+

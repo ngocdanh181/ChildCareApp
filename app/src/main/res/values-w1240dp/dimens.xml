@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="activity_horizontal_margin">200dp</dimen>
+    <dimen name="story_progress_height">2dp</dimen>
+</resources>

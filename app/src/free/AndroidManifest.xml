@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.CALL_PHONE"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.USE_APP_STANDBY_BUCKET" /> <!-- Quyền để thêm widget -->
+    <uses-permission
+        android:name="android.permission.BIND_APPWIDGET"
+        tools:ignore="ProtectedPermissions" /> <!-- Cho Android 12+ (API 31+) -->
+    <queries>
+        <intent>
+            <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+        </intent>
+    </queries>
+    <queries>
+        <intent>
+            <action android:name="android.app.role.TIME_LIMIT_MONITOR" />
+        </intent>
+    </queries>
+
+    <application>
+
+        <!-- Child Splash Activity as main launcher -->
+        <activity
+            android:name=".ui.FreeSplashActivity"
+            android:exported="true"
+            android:theme="@style/ChildSplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Child activities -->
+        <activity
+            android:name=".ui.child.childstart.ChildIdActivity"
+            android:exported="false" />
+        <activity 
+            android:name=".ui.child.onboarding.OnboardingActivity"
+            android:exported="false" />
+
+        <!-- Remove unused activities from main manifest -->
+        <activity
+            android:name=".unuse.SecondActivity"
+            tools:node="remove" />
+        <activity
+            android:name=".ui.ForgotPasswordActivity"
+            tools:node="remove" />
+        <activity android:name=".MapActivity"
+            tools:node="remove" />
+
+        <!-- Remove parent Firebase service -->
+        <service
+            android:name=".service.WarningForegroundService"
+            tools:node="remove" />
+
+        <activity
+            android:name=".ui.child.sos.widget.SOSWidgetGuideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.child.sos.SOSSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.child.main.MainChildActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.child.childchat.ChildChatActivity"
+            android:exported="false" />
+
+
+        <!--Định nghĩa service -->
+        <service
+            android:name=".service.ChildFirebaseMessagingService"
+            android:directBootAware="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.AppLimitService"
+            android:exported="true"
+            android:foregroundServiceType="dataSync" />
+
+        <service
+            android:name=".service.AudioStreamingForegroundService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone">
+            <intent-filter>
+                <action android:name="AUDIO_SERVICE_COMMAND" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.LocationForegroundService"
+            android:exported="true"
+            android:foregroundServiceType="location" />
+
+        <receiver android:name=".service.TaskReminderReceiver" />
+
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+
+        <receiver
+            android:name=".service.ServiceRestartReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="CHECK_AND_RESTART_SERVICES" />
+                <action android:name="RESTART_APP_LIMIT_SERVICE" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name=".service.WebFilterAccessibilityService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+        <service
+            android:name=".service.WebFilterVpnService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+                android:value="true" />
+        </service>
+        <!-- service lien quan den chuc nang sos -->
+        <service
+            android:name=".ui.child.sos.service.SOSService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+        <service
+            android:name=".ui.child.sos.service.SOSGestureService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".ui.child.sos.service.FallDetectionService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+        <service
+            android:name=".ui.child.sos.service.SOSTileService"
+            android:exported="true"
+            android:icon="@drawable/baseline_notifications_24"
+            android:label="SOS Khẩn cấp"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="false" />
+        </service>
+
+        <receiver
+            android:name=".ui.child.sos.widget.SOSWidgetProvider"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/sos_widget_info" />
+        </receiver>
+
+
+    </application>
+
+</manifest>

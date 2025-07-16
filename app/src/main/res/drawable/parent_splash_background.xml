@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#2196F3"
+                android:endColor="#1976D2"
+                android:angle="90"
+                android:type="linear" />
+        </shape>
+    </item>
+    
+    <!-- App logo/icon -->
+    <item>
+        <bitmap
+            android:src="@mipmap/ic_launcher"
+            android:gravity="center" />
+    </item>
+    
+    <!-- Professional decorative elements -->
+    <item android:top="80dp" android:left="30dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#3F51B5" />
+            <corners android:radius="8dp" />
+            <size
+                android:width="50dp"
+                android:height="50dp" />
+        </shape>
+    </item>
+    
+    <item android:bottom="120dp" android:right="40dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#009688" />
+            <corners android:radius="12dp" />
+            <size
+                android:width="35dp"
+                android:height="35dp" />
+        </shape>
+    </item>
+</layer-list> 

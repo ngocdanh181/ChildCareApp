@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.childlocate.ui.parent.home.HomeViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="54dp"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.parent.home.HomeFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/backgroundColor">
+
+                <Spinner
+                    android:id="@+id/childNameSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#27273A"
+                    android:layout_gravity="center_vertical" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+        <!-- First FAB (positioned above the bottom sheet) -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="80dp"
+            app:fabSize="normal"
+            app:maxImageSize="16dp"
+            app:tint="@color/white"
+            android:visibility="gone"
+            app:backgroundTint="@color/backgroundColor"
+            android:contentDescription="Chat icon"
+            app:srcCompat="@drawable/baseline_chat_bubble_outline_24"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_anchor="@id/fab_chat"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="16dp"
+            app:layout_anchorGravity="bottom|end"
+            app:fabSize="normal"
+            android:visibility="gone"
+            android:contentDescription="direction icon"
+            app:srcCompat="@drawable/ic_direction"
+            android:backgroundTint="@color/teal_200"
+            app:rippleColor="@color/gmailColor"
+            app:strokeColor="@color/gmailColor"
+            app:strokeWidth="1dp"
+            app:shapeAppearance="@style/ShapeAppearance.App.SmallComponent"/>
+
+        <FrameLayout
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:id="@+id/bottomSheet"
+            app:behavior_peekHeight="80dp"
+            android:background="@color/bottomSheetColor"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/dragHandle"
+                    android:layout_width="40dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/drag_handle_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/safeLocationStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text=""
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor"
+                    android:visibility="gone"
+                    android:drawablePadding="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dragHandle" />
+
+                <Button
+                    android:id="@+id/btnListenSound"
+                    android:layout_width="190dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/primaryColor"
+                    android:drawableLeft="@drawable/baseline_campaign_24"
+                    android:drawableTint="@color/white"
+                    android:fontFamily="sans-serif"
+                    android:singleLine="true"
+                    android:text="Nghe âm thanh"
+                    android:textColor="#212121"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"
+                    app:cornerRadius="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/safeLocationStatus" />
+
+                <Button
+                    android:id="@+id/btnFindDirection"
+                    android:layout_width="190dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/primaryColor"
+                    android:drawableLeft="@drawable/baseline_notifications_24"
+                    android:drawableTint="@color/white"
+                    android:singleLine="true"
+                    android:text="Tìm đường đi"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="#212121"
+                    app:cornerRadius="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/btnListenSound"
+                    app:layout_constraintTop_toBottomOf="@+id/safeLocationStatus" />
+
+                <LinearLayout
+                    android:id="@+id/llBottomSheet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    app:layout_constraintTop_toBottomOf="@+id/btnListenSound">
+
+                    <!-- Item 1 - Call -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/btnCallChild"
+                            style="@style/CircularImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="Phone icon"
+                            app:srcCompat="@drawable/button_call" />
+
+                        <TextView
+                            android:id="@+id/phoneText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Xem lịch sử"
+                            android:textColor="@color/secondaryColor"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Item 2 - Location -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/btnLocation"
+                            style="@style/CircularImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="Location icon"
+                            app:srcCompat="@drawable/button_location" />
+
+                        <TextView
+                            android:id="@+id/textLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Địa điểm"
+                            android:textColor="@color/secondaryColor"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Item 3 - History -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/btnHistory"
+                            style="@style/CircularImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="History icon"
+                            app:srcCompat="@drawable/button_history" />
+
+                        <TextView
+                            android:id="@+id/historyText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Quản lí web"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondaryColor"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- Item 4 - Settings -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/btnSetting"
+                            style="@style/CircularImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="Setting icon"
+                            app:srcCompat="@drawable/button_setting" />
+
+                        <TextView
+                            android:id="@+id/settingTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nhiệm vụ"
+                            android:textColor="@color/secondaryColor"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/healthyCardView"
+                    android:layout_width="347dp"
+                    android:layout_height="164dp"
+                    android:layout_marginTop="44dp"
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.531"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llBottomSheet" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/timeManagemeCardView"
+                    android:layout_width="347dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#000000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.531"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/healthyCardView"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thời gian sử dụng thiết bị"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <com.github.mikephil.charting.charts.BarChart
+                            android:id="@+id/miniBarChart"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_marginTop="8dp" />
+
+                        <Button
+                            android:id="@+id/btnSeeDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="8dp"
+                            android:text="Xem chi tiết" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

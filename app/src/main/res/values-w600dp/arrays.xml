@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sos_behavior_entries">sos_behavior_entries</string-array>
+    <string-array name="sos_behavior_values">sos_behavior_values</string-array>
+</resources>
