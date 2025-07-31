@@ -35,8 +35,27 @@
 * **Accessibility Service & UsageStats API:** Hỗ trợ chức năng chặn từ khóa, lọc nội dung và thu thập thời gian sử dụng ứng dụng.
 * **Kiến trúc MVVM:** Tăng tính linh hoạt và dễ bảo trì cho hệ thống.
 
-## Đóng góp nổi bật
+## Một vài hình ảnh minh họa cho ứng dụng
 
-* Phát triển một ứng dụng giám sát trẻ em toàn diện, thân thiện, và phù hợp với văn hóa Việt Nam.
+### 1. Theo dõi vị trí realtime
+
+<img src="https://github.com/user-attachments/assets/efde505a-42fa-4f14-9408-9a4662a173f8" alt="Màn hình theo dõi vị trí trẻ em" width="300"/>
+
+### 2. Tạo và giao nhiệm vụ
+
+<img src="https://github.com/user-attachments/assets/666e3b06-1868-43e3-a7f9-de5b1fbb6b5f" alt="Màn hình tạo và giao nhiệm vụ" width="300"/>
+
+### 3. Màn hình quản lý thời gian và chặn ứng dụng
+
+<img src="https://github.com/user-attachments/assets/f53d814e-34e0-42c6-893f-c0b1a274ede1" alt="Màn hình chặn - Bên phía trẻ em" width="300"/> 
+
+<img src="https://github.com/user-attachments/assets/76203c7f-68fc-4b5c-b3ee-ca6780b7a908" alt="Màn hình quản lý thời gian - Bên phía phụ huynh" width="300"/> 
+
+### 4. Màn hình thêm địa điểm thân quen
+
+<img src="https://github.com/user-attachments/assets/0be81c95-3173-4b0e-acd7-25042c619885" alt="Màn hình thêm địa điểm thân quen" width="300"/> 
+
+
+## Đóng góp nổi bật
 * Tính năng cảnh báo khẩn cấp độc đáo và hiệu quả.
 * Giải pháp tối ưu kiểm tra vùng an toàn (Two-Stage Filtering & Intelligent Caching) và quản lý thiết bị trẻ em thông minh, cân bằng giữa độ chính xác, hiệu suất và tuổi thọ pin.
